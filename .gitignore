@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Binaries & Build Artifacts
+NotepadMac
+NotepadMac.app
+build/
+dmg_staging/
+*.dmg
+*.o
+*.dSYM/
+
+# Temporary / Scratch files
+test_*.png
+toolbar_only.png
+*.swp
+*~
