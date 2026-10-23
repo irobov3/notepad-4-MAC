@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class LineNumberRulerView: NSRulerView {
@@ -76,3 +77,4 @@ public class LineNumberRulerView: NSRulerView {
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class FindReplaceBar: NSView {
@@ -130,3 +131,4 @@ public class FindReplaceBar: NSView {
         window?.makeFirstResponder(findField)
     }
 }
+#endif

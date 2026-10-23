@@ -9,6 +9,8 @@ Icon
 NotepadMac
 NotepadMac.app
 build/
+.build/
+main
 dmg_staging/
 *.dmg
 *.o
@@ -19,3 +21,21 @@ test_*.png
 toolbar_only.png
 *.swp
 *~
+
+# Credentials & Signing Certificates (NEVER commit to git)
+*.p12
+*.cer
+*.crt
+*.key
+*.pem
+*.keystore
+*.mobileprovision
+*.provisionprofile
+*.jks
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+

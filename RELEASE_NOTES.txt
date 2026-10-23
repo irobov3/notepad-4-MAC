@@ -1,0 +1,34 @@
+Notepad++ for Mac v1.0.0 🦎
+
+An authentic, ultra-lightweight, native macOS desktop text editor inspired by Notepad++. Built with 100% native Swift & AppKit for Apple Silicon (macOS 14.0+).
+
+✨ Highlights
+🚀 100% Native AppKit: Instant launch (< 0.2s), minimal memory footprint (~40MB RAM), zero Electron / web framework overhead.
+
+🦎 Authentic Mascot & Icon: High-resolution macOS squircle icon featuring the classic Notepad++ Green Chameleon.
+
+🎨 Multi-Language Syntax Highlighting: Support for C, C++, Python, JavaScript, TypeScript, HTML, XML, JSON, Markdown, SQL, Swift, and Shell.
+
+📑 Tabbed Multi-Document Interface: Real-time status disk indicator (Red = unsaved/modified, Blue = saved), + new tab button, and close buttons.
+
+📏 Accurate Line Gutter Ruler: Synchronised line numbers perfectly aligned with text fragments.
+🔍 Collapsible Find & Replace Bar (⌘F): Match Case, Whole Word, Regular Expression, and match counts.
+
+ 📊 Notepad++ Telemetry Status Bar: Real-time Ln, Col, Pos, total lines, total length, line ending format (Unix (LF) / Windows (CR LF)), encoding (UTF-8), and language indicator.
+
+📦 Installation
+1. Download Notepad++ for Mac.dmg attached below.
+2. Double-click the DMG and drag Notepad++ for Mac into your Applications folder.
+3. First time opening: Right-click Notepad++ for Mac in Applications and choose Open (required once on macOS for community-built apps).
+
+
+⌨️ Key Shortcuts
+⌘N: New Document / Tab
+⌘O: Open File(s)...
+⌘S: Save Active Document
+⌘S: Save All Documents
+⌘W: Close Current Tab
+⌘F: Toggle Find & Replace Bar
+⌘+ / ⌘-: Zoom In / Zoom Out Font Size
+
+Inspired by Notepad++ by Don Ho. Developed by iRoBo.

@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 echo "Compiling Notepad++ for Mac (Apple Silicon)..."
-swiftc -O -target arm64-apple-macosx14.0 Sources/*.swift -o NotepadMac
+swiftc -O -parse-as-library -target arm64-apple-macosx14.0 Sources/*.swift -o NotepadMac
 mkdir -p /Applications/NotepadMac.app/Contents/MacOS /Applications/NotepadMac.app/Contents/Resources
 cp NotepadMac /Applications/NotepadMac.app/Contents/MacOS/NotepadMac
 cp Info.plist /Applications/NotepadMac.app/Contents/Info.plist

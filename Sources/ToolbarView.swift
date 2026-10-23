@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class ToolbarView: NSView {
@@ -168,3 +169,4 @@ public class ToolbarView: NSView {
     @objc private func handleWrap() { onToggleWordWrap?() }
     @objc private func handleTheme() { onToggleTheme?() }
 }
+#endif

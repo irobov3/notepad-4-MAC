@@ -1,0 +1,26 @@
+{
+  "buildPlatform": "iPadOS",
+  "applicationCategory": "public.app-category.developer-tools",
+  "itemType": "App",
+  "displayVersion": "1.0.0",
+  "bundleVersion": "1",
+  "bundleIdentifier": "com.irobo.notepadpp",
+  "appIcon": "AppIcon",
+  "accentColor": "AccentColor",
+  "supportedDeviceFamilies": [
+    "pad",
+    "phone"
+  ],
+  "supportedInterfaceOrientations": [
+    "portrait",
+    "landscapeRight",
+    "landscapeLeft",
+    "portraitUpsideDown"
+  ],
+  "capabilities": [
+    {
+      "capability": "userSelectedFiles",
+      "mode": "readWrite"
+    }
+  ]
+}

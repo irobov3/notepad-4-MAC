@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class EditorContainerView: NSView, NSTextViewDelegate {
@@ -111,3 +112,4 @@ public class EditorContainerView: NSView, NSTextViewDelegate {
         }
     }
 }
+#endif

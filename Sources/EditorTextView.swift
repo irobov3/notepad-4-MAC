@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class EditorTextView: NSTextView {
@@ -102,3 +103,4 @@ public class EditorTextView: NSTextView {
         doc.selectionLength = selected.length
     }
 }
+#endif

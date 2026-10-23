@@ -1,4 +1,8 @@
+#if os(macOS)
 import Cocoa
+#elseif os(iOS)
+import UIKit
+#endif
 
 public enum SyntaxLanguage: String, CaseIterable, Identifiable {
     case plainText = "Normal text"
@@ -37,53 +41,53 @@ public enum SyntaxLanguage: String, CaseIterable, Identifiable {
     }
 }
 
-public struct SyntaxTheme {
+public struct SyntaxTheme: @unchecked Sendable {
     public let name: String
-    public let backgroundColor: NSColor
-    public let textColor: NSColor
-    public let gutterColor: NSColor
-    public let gutterTextColor: NSColor
-    public let selectionColor: NSColor
-    public let currentLineColor: NSColor
-    public let keywordColor: NSColor
-    public let stringColor: NSColor
-    public let commentColor: NSColor
-    public let numberColor: NSColor
-    public let preprocessorColor: NSColor
+    public let backgroundColor: PlatformColor
+    public let textColor: PlatformColor
+    public let gutterColor: PlatformColor
+    public let gutterTextColor: PlatformColor
+    public let selectionColor: PlatformColor
+    public let currentLineColor: PlatformColor
+    public let keywordColor: PlatformColor
+    public let stringColor: PlatformColor
+    public let commentColor: PlatformColor
+    public let numberColor: PlatformColor
+    public let preprocessorColor: PlatformColor
 
     public static let classic = SyntaxTheme(
         name: "Notepad++ Classic",
-        backgroundColor: NSColor(calibratedRed: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-        textColor: NSColor(calibratedRed: 0.0, green: 0.0, blue: 0.0, alpha: 1.0),
-        gutterColor: NSColor(calibratedRed: 0.94, green: 0.94, blue: 0.94, alpha: 1.0),
-        gutterTextColor: NSColor(calibratedRed: 0.5, green: 0.5, blue: 0.5, alpha: 1.0),
-        selectionColor: NSColor(calibratedRed: 0.76, green: 0.85, blue: 1.0, alpha: 0.7),
-        currentLineColor: NSColor(calibratedRed: 0.95, green: 0.98, blue: 1.0, alpha: 0.8),
-        keywordColor: NSColor(calibratedRed: 0.0, green: 0.0, blue: 0.8, alpha: 1.0),
-        stringColor: NSColor(calibratedRed: 0.5, green: 0.5, blue: 0.5, alpha: 1.0),
-        commentColor: NSColor(calibratedRed: 0.0, green: 0.5, blue: 0.0, alpha: 1.0),
-        numberColor: NSColor(calibratedRed: 1.0, green: 0.4, blue: 0.0, alpha: 1.0),
-        preprocessorColor: NSColor(calibratedRed: 0.5, green: 0.0, blue: 0.5, alpha: 1.0)
+        backgroundColor: .rgb(1.0, 1.0, 1.0),
+        textColor: .rgb(0.0, 0.0, 0.0),
+        gutterColor: .rgb(0.94, 0.94, 0.94),
+        gutterTextColor: .rgb(0.5, 0.5, 0.5),
+        selectionColor: .rgb(0.76, 0.85, 1.0, 0.7),
+        currentLineColor: .rgb(0.95, 0.98, 1.0, 0.8),
+        keywordColor: .rgb(0.0, 0.0, 0.8),
+        stringColor: .rgb(0.5, 0.5, 0.5),
+        commentColor: .rgb(0.0, 0.5, 0.0),
+        numberColor: .rgb(1.0, 0.4, 0.0),
+        preprocessorColor: .rgb(0.5, 0.0, 0.5)
     )
 
     public static let darkMode = SyntaxTheme(
         name: "Notepad++ Dark Mode",
-        backgroundColor: NSColor(calibratedRed: 0.12, green: 0.12, blue: 0.12, alpha: 1.0),
-        textColor: NSColor(calibratedRed: 0.86, green: 0.86, blue: 0.86, alpha: 1.0),
-        gutterColor: NSColor(calibratedRed: 0.16, green: 0.16, blue: 0.16, alpha: 1.0),
-        gutterTextColor: NSColor(calibratedRed: 0.45, green: 0.45, blue: 0.45, alpha: 1.0),
-        selectionColor: NSColor(calibratedRed: 0.2, green: 0.35, blue: 0.55, alpha: 0.8),
-        currentLineColor: NSColor(calibratedRed: 0.18, green: 0.18, blue: 0.2, alpha: 0.7),
-        keywordColor: NSColor(calibratedRed: 0.35, green: 0.65, blue: 0.95, alpha: 1.0),
-        stringColor: NSColor(calibratedRed: 0.85, green: 0.6, blue: 0.45, alpha: 1.0),
-        commentColor: NSColor(calibratedRed: 0.4, green: 0.65, blue: 0.35, alpha: 1.0),
-        numberColor: NSColor(calibratedRed: 0.7, green: 0.85, blue: 0.65, alpha: 1.0),
-        preprocessorColor: NSColor(calibratedRed: 0.8, green: 0.5, blue: 0.85, alpha: 1.0)
+        backgroundColor: .rgb(0.12, 0.12, 0.12),
+        textColor: .rgb(0.86, 0.86, 0.86),
+        gutterColor: .rgb(0.16, 0.16, 0.16),
+        gutterTextColor: .rgb(0.45, 0.45, 0.45),
+        selectionColor: .rgb(0.2, 0.35, 0.55, 0.8),
+        currentLineColor: .rgb(0.18, 0.18, 0.2, 0.7),
+        keywordColor: .rgb(0.35, 0.65, 0.95),
+        stringColor: .rgb(0.85, 0.6, 0.45),
+        commentColor: .rgb(0.4, 0.65, 0.35),
+        numberColor: .rgb(0.7, 0.85, 0.65),
+        preprocessorColor: .rgb(0.8, 0.5, 0.85)
     )
 }
 
 public class SyntaxHighlighter {
-    public static func highlight(textStorage: NSTextStorage, language: SyntaxLanguage, theme: SyntaxTheme, font: NSFont) {
+    public static func highlight(textStorage: NSTextStorage, language: SyntaxLanguage, theme: SyntaxTheme, font: PlatformFont) {
         let fullRange = NSRange(location: 0, length: textStorage.length)
         guard fullRange.length > 0 else { return }
 

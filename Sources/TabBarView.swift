@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class TabBarView: NSView {
@@ -182,3 +183,4 @@ public class TabBarView: NSView {
         onCloseTab?(sender.tag)
     }
 }
+#endif

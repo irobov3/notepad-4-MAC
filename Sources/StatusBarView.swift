@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class StatusBarView: NSView {
@@ -106,3 +107,4 @@ public class StatusBarView: NSView {
         languageLabel.stringValue = doc.language.rawValue
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 
 public class MainViewController: NSViewController {
@@ -369,3 +370,4 @@ int main() {
         findBar.statusLabel.stringValue = "\(count) matches found"
     }
 }
+#endif

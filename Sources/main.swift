@@ -1,11 +1,14 @@
+#if os(macOS)
 import Cocoa
 
-final class AppContainer {
-    static let shared = AppContainer()
-    let delegate = AppDelegate()
+@main
+struct NotepadMacMain {
+    static func main() {
+        let app = NSApplication.shared
+        app.setActivationPolicy(.regular)
+        let delegate = AppDelegate()
+        app.delegate = delegate
+        app.run()
+    }
 }
-
-let app = NSApplication.shared
-app.setActivationPolicy(.regular)
-app.delegate = AppContainer.shared.delegate
-app.run()
+#endif
